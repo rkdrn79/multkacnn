@@ -1,1 +1,1 @@
-# multkan
+# MultKACNN : Multiplication Kolmogorov-Arnold Convolution Neural Networks
