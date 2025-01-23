@@ -10,7 +10,7 @@ class VisionTrainer(Trainer):
     def __init__(self, **kwds):
         super().__init__(**kwds)
 
-        self.criteria = nn.MSELoss()
+        self.criteria = nn.CrossEntropyLoss()
         
     def compute_loss(self, model, inputs, return_outputs=False):
         output = model(inputs['inputs'])

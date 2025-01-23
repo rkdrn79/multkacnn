@@ -16,6 +16,11 @@ def get_arguments():
 
     # ======================== model ======================== #
     parser.add_argument('--model', type=str, default='cnn')
+    parser.add_argument('--model_size', type=str, default='small')
+    parser.add_argument('--num_classes', type=int, default=10)
+    parser.add_argument('--conv_module', type=str, default='cnn')
+    parser.add_argument('--fc_module', type=str, default='linear')
+    parser.add_argument('--grid_size', type=int, default=5)
 
     # ======================== training ======================== #
     parser.add_argument('--num_train_epochs', type=int, default=1)

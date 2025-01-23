@@ -56,7 +56,7 @@ def main(args):
         remove_unused_columns=False,
         report_to="wandb",
         dataloader_num_workers=0,
-        bf16 = args.bf16 ,
+        bf16 = args.bf16,
     )
 
     trainer = VisionTrainer(

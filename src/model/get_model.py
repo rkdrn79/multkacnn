@@ -1,10 +1,12 @@
 import torchvision.models as models
 import torch.nn as nn
 
+from src.model.models.VisionModel import VisionModel
+
 def get_model(args):
 
     if args.model == 'cnn':
-        model = ModuleNotFoundError
+        model = VisionModel(args)
 
     print(f"Model: {args.model}")
     print(f"Number of parameters: {count_parameters(model)}")
