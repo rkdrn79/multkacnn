@@ -2,7 +2,7 @@ import torch
 import math
 import sys
 
-from .MultKAN import MultKAN
+from .MultKANLinear import MultKANLinear
 import convolution
 
 
@@ -119,7 +119,7 @@ class MultKAN_Convolutional_Layer(torch.nn.Module):
         self.padding = padding
         self.dilation = dilation
         # self.device = device
-        self.conv = MultKAN(
+        self.conv = MultKANLinear(
             in_features = math.prod(kernel_size),
             out_features = 1,
             grid_size=grid_size,

@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from .spline import *
-from .utils import sparse_mask
+from .KANLayer import sparse_mask
 
 
 class KANLayer(nn.Module):
