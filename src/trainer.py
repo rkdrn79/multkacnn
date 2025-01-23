@@ -5,7 +5,6 @@ from torch import nn
 import torch
 import numpy as np
 
-
 class VisionTrainer(Trainer):
     def __init__(self, **kwds):
         super().__init__(**kwds)

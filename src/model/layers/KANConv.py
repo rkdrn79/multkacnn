@@ -4,7 +4,7 @@ import math
 import sys
 
 from .KANLinear import KANLinear
-import convolution
+from .convolution import *
 
 
 #Script que contiene la implementación del kernel con funciones de activación.
@@ -86,7 +86,7 @@ class KAN_Convolutional_Layer(torch.nn.Module):
         # If there are multiple convolutions, apply them all
         self.device = x.device
         #if self.n_convs>1:
-        return convolution.multiple_convs_kan_conv2d(x, self.convs,self.kernel_size[0],self.out_channels,self.stride,self.dilation,self.padding,self.device)
+        return multiple_convs_kan_conv2d(x, self.convs,self.kernel_size[0],self.out_channels,self.stride,self.dilation,self.padding,self.device)
         
         # If there is only one convolution, apply it
         #return self.convs[0].forward(x)

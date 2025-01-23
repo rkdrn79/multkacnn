@@ -11,7 +11,7 @@ def get_arguments():
 
     # ======================== data ======================== #
     parser.add_argument('--data_path', type=str, default='data/')
-    parser.add_argumnet('--data_name', type=str, default='mnist')
+    parser.add_argument('--data_name', type=str, default='mnist')
     parser.add_argument('--bf16', type=bool, default=False)
 
     # ======================== model ======================== #
@@ -23,8 +23,9 @@ def get_arguments():
     parser.add_argument('--grid_size', type=int, default=5)
 
     # ======================== training ======================== #
-    parser.add_argument('--num_train_epochs', type=int, default=1)
+    parser.add_argument('--num_train_epochs', type=int, default=100)
     parser.add_argument('--eval_steps', type=int, default=100)
+    parser.add_argument('--learning_rate', type=float, default=1e-3, help='Learning rate')
     parser.add_argument('--warmup_ratio', type=float, default=0.1)
     parser.add_argument('--per_device_train_batch_size', type=int, default=32)
     parser.add_argument('--per_device_eval_batch_size', type=int, default=32)

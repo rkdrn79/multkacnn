@@ -29,31 +29,37 @@ print(device)
 
 def main(args):
     set_seed(args.seed)
-
-    # Load Model 
-    model = get_model(args)
+    print(args)
 
     # Load dataset
     train_dataset, val_dataset, data_collator = get_dataset(args)
+
+    # Load Model 
+    model = get_model(args)
 
     # wandb
     wandb.init(project='multkan', name=args.save_dir)
 
     training_args = TrainingArguments(
         output_dir=f"./model/{args.save_dir}",
+        # eval
         eval_strategy='steps',
         eval_steps=args.eval_steps,
+        logging_steps=10,
+        metric_for_best_model="accuracy",
+        # save
+        save_strategy="epoch",
+        save_total_limit=None,
+        save_steps=args.eval_steps,
+        remove_unused_columns=False,
+        # training
         per_device_train_batch_size=args.per_device_train_batch_size, 
         gradient_accumulation_steps=args.gradient_accumulation_steps,
         per_device_eval_batch_size=args.per_device_eval_batch_size,
         num_train_epochs=args.num_train_epochs,
         warmup_ratio=args.warmup_ratio,
-        logging_steps=10,
-        metric_for_best_model="accuracy",
-        save_strategy="steps",
-        save_total_limit=None,
-        save_steps=args.eval_steps,
-        remove_unused_columns=False,
+        learning_rate=args.learning_rate,
+        # utils
         report_to="wandb",
         dataloader_num_workers=0,
         bf16 = args.bf16,

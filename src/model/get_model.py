@@ -8,8 +8,9 @@ def get_model(args):
     if args.model == 'cnn':
         model = VisionModel(args)
 
-    print(f"Model: {args.model}")
+    print(f"Model: {args.model}, Model Size: {args.model_size}, Conv Module: {args.conv_module}, FC Module: {args.fc_module}")
     print(f"Number of parameters: {count_parameters(model)}")
+    print(model)
     return model
 
 def count_parameters(model):
